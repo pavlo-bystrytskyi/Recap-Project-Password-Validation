@@ -12,17 +12,23 @@ public class PasswordGenerator {
     }
 
     public static String generatePassword() {
+        while (true) {
+            String password = generateNonValidatedPassword();
+            if (PasswordValidator.isValid(password)) {
+
+                return password;
+            }
+        }
+    }
+
+    private static String generateNonValidatedPassword() {
         Random random = new Random();
         char[] passwordElements = new char[MINIMUM_PASSWORD_LENGTH];
-        String password = "";
-        do {
-            for (int i = 0; i < MINIMUM_PASSWORD_LENGTH; i++) {
-                // Magic!
-                passwordElements[i] = (char) (33 + random.nextInt(94));
-            }
-            password = new String(passwordElements);
-        } while (!PasswordValidator.isValid(password));
+        for (int i = 0; i < MINIMUM_PASSWORD_LENGTH; i++) {
+            // Magic!
+            passwordElements[i] = (char) (33 + random.nextInt(94));
+        }
 
-        return password;
+        return new String(passwordElements);
     }
 }

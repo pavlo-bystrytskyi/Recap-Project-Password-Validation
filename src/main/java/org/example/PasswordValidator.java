@@ -2,7 +2,7 @@ package org.example;
 
 public class PasswordValidator {
     static int MINIMUM_PASSWORD_LENGTH = 8;
-    private static String[] COMMONLY_USED = {"Password1!", "Aa345678"};
+    private static final String[] COMMONLY_USED = {"Password1!", "Aa345678"};
 
     public static boolean isValid(String password) {
         return isLengthCorrect(password)
@@ -25,8 +25,8 @@ public class PasswordValidator {
     }
 
     public static boolean isNotCommonlyUsed(String password) {
-        for (String commonlyUsed : COMMONLY_USED) {
-            if (commonlyUsed.contains(password)) {
+        for (String commonlyUsedPassword : COMMONLY_USED) {
+            if (commonlyUsedPassword.equals(password)) {
                 return false;
             }
         }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PasswordGeneratorTest {
-    private static int GENERATIONS_NUMBER = 50;
+    private static final int GENERATIONS_NUMBER = 50;
 
     @Test
     void generatePassword() {

@@ -15,7 +15,8 @@ class PasswordValidatorTest {
                 "aa#12345", // no Uppercase
                 "AA#12345", // no Lowercase
                 "Password1!", // commonly used
-                "Aa012345" // no special characters
+                "Aa012345", // no special characters
+                "" // empty string
         };
         for (String password : invalidPasswords) {
             boolean result = PasswordValidator.isValid(password);

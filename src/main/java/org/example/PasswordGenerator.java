@@ -1,5 +1,6 @@
 package org.example;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 import static org.example.PasswordValidator.MINIMUM_PASSWORD_LENGTH;
@@ -16,17 +17,16 @@ public class PasswordGenerator {
     }
 
     public static String generatePassword(int length) {
-        while (true) {
-            String password = generateNonValidatedPassword(length);
-            if (PasswordValidator.isValid(password)) {
-
-                return password;
-            }
+        String password = generateNonValidatedPassword(length);
+        while (!PasswordValidator.isValid(password)) {
+            password = generateNonValidatedPassword(length);
         }
+
+        return password;
     }
 
     private static String generateNonValidatedPassword(int length) {
-        Random random = new Random();
+        Random random = new SecureRandom();
         char[] passwordElements = new char[length];
         for (int i = 0; i < length; i++) {
             // Magic!

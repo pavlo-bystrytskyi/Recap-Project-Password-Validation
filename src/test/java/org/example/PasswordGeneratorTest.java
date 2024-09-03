@@ -8,7 +8,7 @@ class PasswordGeneratorTest {
     private static final int GENERATIONS_NUMBER = 50;
 
     @Test
-    void generatePassword() {
+    void generatePassword_whenGeneratePassword_ExpectValid() {
         for (int i = 0; i < GENERATIONS_NUMBER; i++) {
             String generatedPassword = PasswordGenerator.generatePassword();
             boolean isValid = PasswordValidator.isValid(generatedPassword);

@@ -17,11 +17,11 @@ public class PasswordValidator {
     }
 
     static boolean containsDigits(String password) {
-        return password.matches("(.*)\\d+(.*)");
+        return password.matches(".*\\d+.*");
     }
 
     static boolean containsUppercaseLowercase(String password) {
-        return password.matches("(.*)[A-Z]+(.*)") && password.matches("(.*)[a-z]+(.*)");
+        return password.matches(".*[A-Z]+.*") && password.matches(".*[a-z]+.*");
     }
 
     static boolean isNotCommonlyUsed(String password) {
@@ -36,6 +36,6 @@ public class PasswordValidator {
     }
 
     static boolean containsSpecialCharacters(String password) {
-        return password.matches("(.*)[^a-zA-Z0-9]+(.*)");
+        return password.matches(".*[^a-zA-Z0-9]+.*");
     }
 }
